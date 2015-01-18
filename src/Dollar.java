@@ -1,5 +1,5 @@
 /**
- * Created by Skyro on 18/01/2015.
+ * Created by Jgrand on 18/01/2015.
  */
 public class Dollar {
     int amount;
@@ -7,9 +7,9 @@ public class Dollar {
         this.amount=amount;
     }
 
-    public void times(int multiplier){
-        amount *= multiplier;
+    public Dollar times(int multiplier){
 
+        return new Dollar(amount*multiplier);
     }
 
 
