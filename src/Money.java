@@ -1,7 +1,9 @@
 /**
  * Created by Skyro on 18/01/2015.
  */
-abstract class Money {
+public class Money {
+
+
     protected int amount;
     protected String currency;
 
@@ -16,7 +18,7 @@ abstract class Money {
 
     public boolean equals(Object object){
         Money money = (Money) object;
-        return amount==money.amount && getClass().equals(money.getClass());
+        return amount==money.amount && currency().equals(money.currency());
     }
 
     static Money dollar(int amount){
@@ -27,8 +29,13 @@ abstract class Money {
         return new Franc(amount, "CHF");
     }
 
-    abstract Money times(int multiplier);
+    public String toString(){
+        return amount+ " " + currency;
+    }
 
+    Money times(int multiplier){
+        return new Money(amount*multiplier,currency);
+    }
 
 
 }
