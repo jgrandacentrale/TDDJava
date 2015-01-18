@@ -21,12 +21,22 @@ public class MoneyTest {
         assertFalse( Money.dollar(5).equals(Money.dollar(6)));
         assertTrue(  Money.franc(5).equals(Money.franc(5)));
     }
-    
+
 
     @Test
     public void testCurrency(){
         assertEquals("USD",Money.dollar(1).currency());
         assertEquals("CHF",Money.franc(1).currency());
+    }
+
+    @Test
+    public void testSimpleAddition(){
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10),reduced);
+
     }
 
 }
