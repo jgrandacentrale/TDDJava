@@ -2,7 +2,7 @@
  * Created by Jgrand on 18/01/2015.
  */
 public class Dollar {
-    int amount;
+    private int amount;
     public Dollar(int amount){
         this.amount=amount;
     }
